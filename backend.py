@@ -168,3 +168,18 @@ def history(device_id: str):
         {"signal": r[0], "data_usage": r[1], "timestamp": r[2]}
         for r in rows
     ]
+@app.post("/create_user/")
+def create_user(username: str, password: str):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO users (username, password) VALUES (%s, %s)",
+        (username, password)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return {"message": "User created successfully"}
+
