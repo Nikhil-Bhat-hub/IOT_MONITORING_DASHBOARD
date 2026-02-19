@@ -19,6 +19,11 @@ def init_db():
         password TEXT
     );
     """)
+    cursor.execute("""
+INSERT INTO users (username, password)
+VALUES ('admin', 'admin123')
+ON CONFLICT (username) DO NOTHING;
+""")
 
     # DEVICES
     cursor.execute("""
@@ -53,11 +58,8 @@ def init_db():
         login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """)
-cursor.execute("""
-INSERT INTO users (username, password)
-VALUES ('admin', 'admin123')
-ON CONFLICT (username) DO NOTHING;
-""")
+
     conn.commit()
     conn.close()
+
 
