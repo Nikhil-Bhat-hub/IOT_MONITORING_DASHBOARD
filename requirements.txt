@@ -4,3 +4,4 @@ uvicorn
 pandas
 requests
 pydantic
+psycopg2-binary
