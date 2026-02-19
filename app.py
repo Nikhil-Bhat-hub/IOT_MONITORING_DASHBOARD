@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 # ============================
 # IMPORTANT: CHANGE THIS AFTER BACKEND DEPLOY
 # ============================
-API_BASE = "https://your-backend-name.onrender.com"
+API_BASE = "https://iot-monitoring-dashboard-yru1.onrender.com"
 
 API_LOGIN = f"{API_BASE}/login/"
 API_GET = f"{API_BASE}/get_devices/"
@@ -142,3 +142,4 @@ if not df.empty:
 
 else:
     st.warning("No devices connected")
+
